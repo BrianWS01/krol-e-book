@@ -31,6 +31,8 @@
     font-family: 'Barlow', sans-serif;
     color: var(--white);
     overflow-x: hidden;
+    width: 100vw;
+    position: relative;
   }
 
   /* ── SHARED ELEMENTS ── */
@@ -59,6 +61,7 @@
     position: relative;
     padding: 100px 0;
     width: 100%;
+    overflow-x: hidden; /* Prevent children from causing horizontal scroll */
   }
 
   .container {
