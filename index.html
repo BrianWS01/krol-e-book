@@ -294,6 +294,17 @@
     margin-bottom: 20px;
   }
 
+  /* ── HERO BRAND FOOTER ── */
+  .hero-brand-footer {
+    display: flex;
+    align-items: flex-end;
+    gap: 40px;
+    margin-top: 60px;
+  }
+  .hero-brand-main { font-family: 'Bebas Neue', sans-serif; font-size: 32px; letter-spacing: 4px; color: var(--white); line-height: 1; }
+  .hero-brand-sub { font-family: 'Barlow Condensed', sans-serif; font-size: 12px; font-weight: 600; letter-spacing: 5px; text-transform: uppercase; color: var(--purple-3); margin-top: 4px; }
+  .hero-brand-info { font-family: 'Barlow Condensed', sans-serif; font-size: 11px; font-weight: 600; letter-spacing: 3px; color: var(--gray-2); text-transform: uppercase; }
+
   /* ── CTA SECTION ── */
   .cta-section {
     padding: 120px 0;
@@ -394,10 +405,19 @@
   }
 
   @media (max-width: 600px) {
-    .section-title { font-size: 48px; }
-    .cover-title-lg { font-size: 56px; line-height: 0.9; }
-    .body-text { font-size: 16px; }
-    .card { padding: 30px 20px; }
+    .section-label { margin-inline: auto; text-align: center; }
+    .section-title { font-size: 42px; text-align: center; }
+    .body-text { font-size: 16px; margin-inline: auto; text-align: center; }
+    .cover-tag { margin-inline: auto; }
+    .cover-title-lg { font-size: 52px; line-height: 0.9; text-align: center; }
+    .cta-btn { width: 100%; text-align: center; }
+    
+    #hero { padding-top: 100px; text-align: center; }
+    .hero-content { margin-inline: auto; }
+    .hero-brand-footer { flex-direction: column; align-items: center; gap: 24px; text-align: center; margin-top: 40px; }
+    .hero-brand-logo { text-align: center; }
+    
+    .card { padding: 30px 20px; text-align: left; }
     .highlight-quote { font-size: 24px !important; }
     .big-stat { font-size: 48px; }
     .cta-title-main { font-size: 42px; }
@@ -412,8 +432,12 @@
     .decisao-label-box { width: 100% !important; text-align: left !important; }
     
     /* Philosophy scaling */
-    .phil-title { font-size: 64px !important; }
+    .phil-title { font-size: 56px !important; }
     .phil-word { font-size: 30vw; }
+
+    /* Footer fix */
+    .footer-inner { align-items: center !important; text-align: center !important; }
+    .footer-inner div { text-align: center !important; }
   }
 </style>
 </head>
@@ -437,12 +461,12 @@
     </div>
     <a href="#intro" class="cta-btn">COMEÇAR AGORA</a>
 
-    <div style="display:flex; align-items:flex-end; gap:40px; margin-top:60px;">
-      <div>
-        <div style="font-family:'Bebas Neue', sans-serif; font-size:32px; letter-spacing:4px; color:var(--white);">Team Krol</div>
-        <div style="font-family:'Barlow Condensed', sans-serif; font-size:12px; font-weight:600; letter-spacing:5px; text-transform:uppercase; color:var(--purple-3);">Strength Labs</div>
+    <div class="hero-brand-footer">
+      <div class="hero-brand-logo">
+        <div class="hero-brand-main">Team Krol</div>
+        <div class="hero-brand-sub">Strength Labs</div>
       </div>
-      <div style="font-family:'Barlow Condensed', sans-serif; font-size:11px; font-weight:600; letter-spacing:3px; color:var(--gray-2); text-transform:uppercase;">High End Training · Vol. 01</div>
+      <div class="hero-brand-info">High End Training · Vol. 01</div>
     </div>
   </div>
 </section>
