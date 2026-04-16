@@ -111,6 +111,14 @@
     transition: transform 0.3s ease, border-color 0.3s ease;
   }
 
+  /* Specific fix for cards with fixed grids */
+  .card-grid-fix {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 20px;
+    align-items: center;
+  }
+
   .card:hover {
     transform: translateY(-5px);
     border-color: var(--purple-1);
@@ -369,11 +377,43 @@
   }
 
   /* ── RESPONSIVE ── */
+  @media (max-width: 1024px) {
+    .section-title { font-size: 72px; }
+    .cover-title-lg { font-size: clamp(60px, 12vw, 120px); }
+  }
+
   @media (max-width: 900px) {
+    section { padding: 80px 0; }
     .grid2, .grid3 { grid-template-columns: 1fr; }
     .section-title { font-size: 60px; }
-    #hero { height: auto; padding: 120px 5% 80px; }
-    .footer-inner { flex-direction: column; align-items: flex-start; gap: 40px; }
+    #hero { height: auto; padding: 140px 20px 80px; }
+    .footer-inner { flex-direction: column; align-items: flex-start; gap: 40px; text-align: left; }
+    .footer-inner div { text-align: left !important; }
+    .cta-title-main { font-size: 56px; }
+    .card-grid-fix { grid-template-columns: 1fr; }
+  }
+
+  @media (max-width: 600px) {
+    .section-title { font-size: 48px; }
+    .cover-title-lg { font-size: 56px; line-height: 0.9; }
+    .body-text { font-size: 16px; }
+    .card { padding: 30px 20px; }
+    .highlight-quote { font-size: 24px !important; }
+    .big-stat { font-size: 48px; }
+    .cta-title-main { font-size: 42px; }
+    
+    /* Decisao specific fix */
+    .decisao-row {
+      flex-direction: column !important;
+      align-items: flex-start !important;
+      gap: 12px !important;
+    }
+    .decisao-spacer { display: none; }
+    .decisao-label-box { width: 100% !important; text-align: left !important; }
+    
+    /* Philosophy scaling */
+    .phil-title { font-size: 64px !important; }
+    .phil-word { font-size: 30vw; }
   }
 </style>
 </head>
@@ -699,34 +739,34 @@
     <h2 class="section-title">Como<br><span>Escolher</span><br>sua Divisão</h2>
 
     <div style="display:flex;flex-direction:column;gap:20px;margin-bottom:28px;">
-      <div style="display:flex;align-items:center;gap:24px;">
-        <div style="flex-shrink:0;width:120px;text-align:center;">
+      <div class="decisao-row" style="display:flex;align-items:center;gap:24px;">
+        <div class="decisao-label-box" style="flex-shrink:0;width:120px;text-align:center;">
           <div class="pill" style="background:rgba(74,222,128,0.15);color:#4ade80;display:block;text-align:center;margin-bottom:6px;">Iniciante</div>
           <div style="font-size:11px;color:var(--gray-1);">0–2 anos</div>
         </div>
-        <div style="flex:1;height:2px;background:linear-gradient(90deg,#4ade80,transparent);"></div>
+        <div class="decisao-spacer" style="flex:1;height:2px;background:linear-gradient(90deg,#4ade80,transparent);"></div>
         <div class="card" style="flex:2;padding:16px 20px;">
           <div style="font-size:15px;font-weight:600;color:var(--white);">Full Body 3x / semana</div>
           <div style="font-size:13px;color:var(--gray-1);margin-top:4px;">Alta frequência, técnica e adaptação neuromotora</div>
         </div>
       </div>
-      <div style="display:flex;align-items:center;gap:24px;">
-        <div style="flex-shrink:0;width:120px;text-align:center;">
+      <div class="decisao-row" style="display:flex;align-items:center;gap:24px;">
+        <div class="decisao-label-box" style="flex-shrink:0;width:120px;text-align:center;">
           <div class="pill orange" style="display:block;text-align:center;margin-bottom:6px;">Intermediário</div>
           <div style="font-size:11px;color:var(--gray-1);">2–5 anos</div>
         </div>
-        <div style="flex:1;height:2px;background:linear-gradient(90deg,var(--orange-2),transparent);"></div>
+        <div class="decisao-spacer" style="flex:1;height:2px;background:linear-gradient(90deg,var(--orange-2),transparent);"></div>
         <div class="card" style="flex:2;padding:16px 20px;">
           <div style="font-size:15px;font-weight:600;color:var(--white);">Upper / Lower 4x / semana</div>
           <div style="font-size:13px;color:var(--gray-1);margin-top:4px;">Equilíbrio perfeito entre frequência e volume</div>
         </div>
       </div>
-      <div style="display:flex;align-items:center;gap:24px;">
-        <div style="flex-shrink:0;width:120px;text-align:center;">
+      <div class="decisao-row" style="display:flex;align-items:center;gap:24px;">
+        <div class="decisao-label-box" style="flex-shrink:0;width:120px;text-align:center;">
           <div class="pill" style="background:rgba(248,113,113,0.15);color:#f87171;display:block;text-align:center;margin-bottom:6px;">Avançado</div>
           <div style="font-size:11px;color:var(--gray-1);">5+ anos</div>
         </div>
-        <div style="flex:1;height:2px;background:linear-gradient(90deg,#f87171,transparent);"></div>
+        <div class="decisao-spacer" style="flex:1;height:2px;background:linear-gradient(90deg,#f87171,transparent);"></div>
         <div class="card" style="flex:2;padding:16px 20px;">
           <div style="font-size:15px;font-weight:600;color:var(--white);">PPL · Torso/Limbs · Híbridos</div>
           <div style="font-size:13px;color:var(--gray-1);margin-top:4px;">Alto volume, alta frequência, especialização</div>
@@ -757,7 +797,7 @@
     <h2 class="section-title">Divisões<br><span>de Treino</span></h2>
 
     <div style="display:flex;flex-direction:column;gap:12px;margin-bottom:24px;">
-      <div class="card" style="display:grid;grid-template-columns:200px 1fr;gap:20px;align-items:center;">
+      <div class="card card-grid-fix">
         <div>
           <div class="pill purple">Upper / Lower</div>
           <div class="big-stat" style="font-size:36px;">4x</div>
@@ -766,7 +806,7 @@
         <div style="font-size:13px;color:var(--gray-1);line-height:1.7;">Divide entre parte superior e inferior. Alta frequência e alta compatibilidade com maioria dos objetivos. <strong style="color:var(--white);">Ideal para intermediários.</strong></div>
       </div>
 
-      <div class="card" style="display:grid;grid-template-columns:200px 1fr;gap:20px;align-items:center;">
+      <div class="card card-grid-fix">
         <div>
           <div class="pill orange">Push / Pull / Legs</div>
           <div class="big-stat" style="font-size:36px;">6x</div>
@@ -775,7 +815,7 @@
         <div style="font-size:13px;color:var(--gray-1);line-height:1.7;">Push: peito, ombro, tríceps · Pull: costas, bíceps · Legs: pernas. <strong style="color:var(--white);">Versátil e eficiente.</strong></div>
       </div>
 
-      <div class="card" style="display:grid;grid-template-columns:200px 1fr;gap:20px;align-items:center;">
+      <div class="card card-grid-fix">
         <div>
           <div class="pill" style="background:rgba(74,222,128,0.15);color:#4ade80;">Full Body</div>
           <div class="big-stat" style="font-size:36px;">3x</div>
@@ -784,7 +824,7 @@
         <div style="font-size:13px;color:var(--gray-1);line-height:1.7;">Corpo todo em cada sessão. Alta frequência por músculo. <strong style="color:var(--white);">Ideal para iniciantes.</strong></div>
       </div>
 
-      <div class="card" style="display:grid;grid-template-columns:200px 1fr;gap:20px;align-items:center;">
+      <div class="card card-grid-fix">
         <div>
           <div class="pill" style="background:rgba(248,113,113,0.15);color:#f87171;">Torso / Limbs</div>
           <div class="big-stat" style="font-size:36px;">4–5x</div>
@@ -808,7 +848,7 @@
   <div class="container" style="text-align:center; padding:100px 0;">
     <div class="section-label">A Filosofia</div>
     
-    <div style="font-family:'Bebas Neue',sans-serif;font-size:90px;line-height:0.85;text-transform:uppercase;letter-spacing:2px;margin-bottom:32px;">
+    <div class="phil-title" style="font-family:'Bebas Neue',sans-serif;font-size:90px;line-height:0.85;text-transform:uppercase;letter-spacing:2px;margin-bottom:32px;">
       <div style="color:var(--white);">Sem treino</div>
       <div style="background:linear-gradient(90deg,var(--purple-2),var(--orange-1));-webkit-background-clip:text;-webkit-text-fill-color:transparent;">fofo.</div>
       <div style="color:var(--white);margin-top:12px;">Sem volume</div>
