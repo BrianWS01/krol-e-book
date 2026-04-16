@@ -1,0 +1,1089 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>High End Training — Strength Labs</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@300;400;500;600;700;900&family=Barlow+Condensed:wght@400;600;700;900&display=swap');
+
+  :root {
+    --bg-deep:    #0a0a0f;
+    --bg-dark:    #10101a;
+    --bg-card:    #14141f;
+    --bg-card2:   #1a1a2a;
+    --purple-1:   #6c3de0;
+    --purple-2:   #9b5de5;
+    --purple-3:   #c77dff;
+    --orange-1:   #ff6b35;
+    --orange-2:   #ff9f1c;
+    --white:      #f0f0f5;
+    --gray-1:     #9999aa;
+    --gray-2:     #555566;
+    --page-w:     794px;
+    --page-h:     1123px;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: #060608;
+    font-family: 'Barlow', sans-serif;
+    color: var(--white);
+  }
+
+  /* ── PAGE SHELL ── */
+  .page {
+    width: var(--page-w);
+    min-height: var(--page-h);
+    margin: 0 auto 6px;
+    background: var(--bg-deep);
+    position: relative;
+    overflow: hidden;
+    page-break-after: always;
+  }
+
+  /* ── DECORATIVE ELEMENTS ── */
+  .noise {
+    position: absolute; inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+    pointer-events: none; z-index: 1;
+  }
+
+  .glow-orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    opacity: 0.18;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* gradient bar top */
+  .top-bar {
+    height: 4px;
+    background: linear-gradient(90deg, var(--purple-1), var(--orange-1));
+    position: relative; z-index: 10;
+  }
+
+  /* ══════════════════════════════════════════
+     PAGE 1 — CAPA
+  ══════════════════════════════════════════ */
+  #p1 { background: var(--bg-deep); }
+
+  #p1 .orb-a { width:500px; height:500px; background:var(--purple-1); top:-100px; right:-100px; }
+  #p1 .orb-b { width:350px; height:350px; background:var(--orange-1); bottom:80px; left:-80px; opacity:0.12; }
+
+  #p1 .cover-inner {
+    position: relative; z-index: 5;
+    display: flex; flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+    height: var(--page-h);
+    padding: 60px 64px;
+  }
+
+  .cover-tag {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 11px; font-weight: 700;
+    letter-spacing: 4px; text-transform: uppercase;
+    color: var(--orange-2);
+    border: 1px solid var(--orange-2);
+    padding: 4px 12px;
+    border-radius: 2px;
+  }
+
+  .cover-main { flex: 1; display: flex; flex-direction: column; justify-content: center; gap: 16px; }
+
+  .cover-eyebrow {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 14px; font-weight: 600;
+    letter-spacing: 6px; text-transform: uppercase;
+    color: var(--purple-3);
+  }
+
+  .cover-title-sm {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 56px; line-height: 1;
+    color: var(--white);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+  }
+
+  .cover-title-lg {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 110px; line-height: 0.88;
+    background: linear-gradient(135deg, var(--purple-2) 0%, var(--orange-1) 100%);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    text-transform: uppercase;
+    letter-spacing: -2px;
+  }
+
+  .cover-subtitle {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 22px; font-weight: 400;
+    letter-spacing: 8px; text-transform: uppercase;
+    color: var(--gray-1);
+    margin-top: 8px;
+  }
+
+  .cover-divider {
+    width: 80px; height: 3px;
+    background: linear-gradient(90deg, var(--purple-2), var(--orange-1));
+    margin: 24px 0;
+  }
+
+  .cover-desc {
+    font-size: 15px; font-weight: 300; line-height: 1.7;
+    color: var(--gray-1); max-width: 380px;
+  }
+
+  .cover-footer {
+    display: flex; align-items: flex-end;
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  .cover-brand { display: flex; flex-direction: column; gap: 2px; }
+
+  .brand-name {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 28px; letter-spacing: 4px;
+    color: var(--white);
+  }
+
+  .brand-sub {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 12px; font-weight: 600; letter-spacing: 5px;
+    text-transform: uppercase; color: var(--purple-3);
+  }
+
+  .cover-vol {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 11px; font-weight: 600; letter-spacing: 3px;
+    color: var(--gray-2); text-transform: uppercase;
+  }
+
+  /* ══════════════════════════════════════════
+     INNER PAGES — SHARED
+  ══════════════════════════════════════════ */
+  .inner-header {
+    height: 60px;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 52px;
+    position: relative; z-index: 10;
+    border-bottom: 1px solid #1e1e30;
+  }
+
+  .inner-brand {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 12px; font-weight: 700; letter-spacing: 4px;
+    text-transform: uppercase; color: var(--purple-3);
+  }
+
+  .inner-pg {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 11px; font-weight: 600; letter-spacing: 3px;
+    color: var(--gray-2);
+  }
+
+  .inner-body {
+    padding: 52px 52px 48px;
+    position: relative; z-index: 5;
+  }
+
+  .section-label {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 10px; font-weight: 700; letter-spacing: 5px;
+    text-transform: uppercase;
+    color: var(--orange-2);
+    margin-bottom: 12px;
+  }
+
+  .section-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 64px; line-height: 0.9;
+    color: var(--white);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 32px;
+  }
+
+  .section-title span {
+    background: linear-gradient(90deg, var(--purple-2), var(--orange-1));
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  }
+
+  .body-text {
+    font-size: 14px; font-weight: 400; line-height: 1.85;
+    color: #ccccd8;
+    max-width: 660px;
+  }
+
+  /* card block */
+  .card {
+    background: var(--bg-card);
+    border: 1px solid #222235;
+    border-radius: 8px;
+    padding: 28px 32px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .card::before {
+    content: '';
+    position: absolute; top: 0; left: 0;
+    width: 3px; height: 100%;
+    background: linear-gradient(180deg, var(--purple-2), var(--orange-1));
+  }
+
+  .card-title {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 13px; font-weight: 700; letter-spacing: 3px;
+    text-transform: uppercase; color: var(--purple-3);
+    margin-bottom: 16px;
+  }
+
+  .list-item {
+    display: flex; align-items: flex-start; gap: 12px;
+    margin-bottom: 12px;
+    font-size: 14px; line-height: 1.6; color: #ccccd8;
+  }
+
+  .list-bullet {
+    flex-shrink: 0;
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--purple-2), var(--orange-1));
+    margin-top: 7px;
+  }
+
+  .highlight-box {
+    background: linear-gradient(135deg, rgba(108,61,224,0.15), rgba(255,107,53,0.1));
+    border: 1px solid rgba(108,61,224,0.3);
+    border-radius: 8px;
+    padding: 24px 28px;
+    text-align: center;
+  }
+
+  .highlight-quote {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 26px; font-weight: 700;
+    line-height: 1.2;
+    background: linear-gradient(90deg, var(--purple-3), var(--orange-2));
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+  }
+
+  /* grid 2-col */
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .grid3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 14px; }
+
+  .level-card {
+    background: var(--bg-card2);
+    border-radius: 8px;
+    padding: 24px;
+    border-top: 2px solid transparent;
+    position: relative;
+  }
+
+  .level-card.green  { border-color: #4ade80; }
+  .level-card.yellow { border-color: var(--orange-2); }
+  .level-card.red    { border-color: #f87171; }
+
+  .level-dot {
+    display: inline-block;
+    width: 10px; height: 10px;
+    border-radius: 50%;
+    margin-right: 8px;
+  }
+  .level-dot.green  { background:#4ade80; }
+  .level-dot.yellow { background:var(--orange-2); }
+  .level-dot.red    { background:#f87171; }
+
+  .level-name {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 16px; font-weight: 700; letter-spacing: 2px;
+    text-transform: uppercase;
+    display: flex; align-items: center;
+    margin-bottom: 14px;
+  }
+
+  .pill {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 20px;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 11px; font-weight: 700; letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+  .pill.purple { background: rgba(108,61,224,0.25); color: var(--purple-3); }
+  .pill.orange { background: rgba(255,107,53,0.2);  color: var(--orange-2); }
+
+  .big-stat {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 52px;
+    background: linear-gradient(90deg, var(--purple-2), var(--orange-1));
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    line-height: 1;
+  }
+
+  .stat-label {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 12px; font-weight: 600; letter-spacing: 2px;
+    text-transform: uppercase; color: var(--gray-1);
+    margin-top: 4px;
+  }
+
+  .divider-h {
+    height: 1px;
+    background: linear-gradient(90deg, var(--purple-1), transparent);
+    margin: 28px 0;
+  }
+
+  .inner-footer {
+    position: absolute; bottom: 0; left: 0; right: 0;
+    height: 48px;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 52px;
+    border-top: 1px solid #1a1a28;
+    z-index: 10;
+  }
+
+  .footer-brand {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 10px; font-weight: 700; letter-spacing: 4px;
+    text-transform: uppercase; color: var(--gray-2);
+  }
+
+  .footer-line {
+    width: 60px; height: 2px;
+    background: linear-gradient(90deg, var(--purple-1), var(--orange-1));
+  }
+
+  /* SIGN / CTA */
+  .cta-box {
+    background: linear-gradient(135deg, rgba(108,61,224,0.2), rgba(255,107,53,0.15));
+    border: 1px solid rgba(155,93,229,0.4);
+    border-radius: 12px;
+    padding: 40px 48px;
+    text-align: center;
+    margin-top: 24px;
+  }
+
+  .cta-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 54px; line-height: 0.9;
+    background: linear-gradient(90deg, var(--white), var(--purple-3));
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    text-transform: uppercase; letter-spacing: 2px;
+    margin-bottom: 16px;
+  }
+
+  .cta-body {
+    font-size: 15px; font-weight: 300; line-height: 1.8;
+    color: var(--gray-1); max-width: 440px; margin: 0 auto 28px;
+  }
+
+  .cta-btn {
+    display: inline-block;
+    padding: 14px 40px;
+    background: linear-gradient(90deg, var(--purple-1), var(--orange-1));
+    border-radius: 4px;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 14px; font-weight: 700; letter-spacing: 4px;
+    text-transform: uppercase; color: var(--white);
+  }
+
+  /* PHILOSOPHY PAGE */
+  .phil-word {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 120px; line-height: 0.85;
+    color: var(--white);
+    text-transform: uppercase;
+    opacity: 0.04;
+    position: absolute;
+    white-space: nowrap;
+    pointer-events: none;
+  }
+
+  /* ── PRINT ── */
+  @media print {
+    body { background: var(--bg-deep); }
+    .page { margin: 0; page-break-after: always; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ══════════════════════════
+     PAGE 1 — CAPA
+══════════════════════════ -->
+<div class="page" id="p1">
+  <div class="top-bar"></div>
+  <div class="noise"></div>
+  <div class="glow-orb orb-a"></div>
+  <div class="glow-orb orb-b"></div>
+
+  <div class="cover-inner">
+    <div class="cover-tag">E-Book · Treinamento Resistido</div>
+
+    <div class="cover-main">
+      <div class="cover-eyebrow">Método</div>
+      <div class="cover-title-sm">Como treinar em</div>
+      <div class="cover-title-lg">Alta<br>Intensidade</div>
+      <div class="cover-subtitle">Treinamento Resistido</div>
+      <div class="cover-divider"></div>
+      <div class="cover-desc">
+        Princípios, protocolos e estratégias para quem quer resultados reais — sem volume inútil, sem treino fofo.
+      </div>
+    </div>
+
+    <div class="cover-footer">
+      <div class="cover-brand">
+        <div class="brand-name">Team Krol</div>
+        <div class="brand-sub">Strength Labs</div>
+      </div>
+      <div class="cover-vol">High End Training · Vol. 01</div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════
+     PAGE 2 — INTRODUÇÃO
+══════════════════════════ -->
+<div class="page" id="p2">
+  <div class="top-bar"></div>
+  <div class="noise"></div>
+  <div class="glow-orb" style="width:400px;height:400px;background:var(--purple-1);top:-100px;left:-100px;"></div>
+
+  <div class="inner-header">
+    <span class="inner-brand">Strength Labs · High End Training</span>
+    <span class="inner-pg">02</span>
+  </div>
+
+  <div class="inner-body">
+    <div class="section-label">Introdução</div>
+    <div class="section-title">O Método<br><span>High End</span><br>Training</div>
+
+    <div class="body-text" style="margin-bottom:32px;">
+      Este material foi criado para quem busca resultados reais.<br>
+      Aqui não existe treino aleatório.
+    </div>
+
+    <div class="card" style="margin-bottom:24px;">
+      <div class="card-title">Você vai aprender</div>
+      <div class="list-item"><div class="list-bullet"></div><span>Como treinar com intensidade real — levando séries ao limite correto</span></div>
+      <div class="list-item"><div class="list-bullet"></div><span>Como evoluir continuamente através de progressão estruturada</span></div>
+      <div class="list-item"><div class="list-bullet"></div><span>Como maximizar hipertrofia com o mínimo de desperdício de energia</span></div>
+    </div>
+
+    <div class="highlight-box">
+      <div style="font-family:'Barlow Condensed',sans-serif;font-size:11px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:var(--gray-1);margin-bottom:10px;">O foco é simples</div>
+      <div class="highlight-quote">Máximo Estímulo.<br>Mínima Perda de Tempo.</div>
+    </div>
+  </div>
+
+  <div class="inner-footer">
+    <span class="footer-brand">Team Krol · Strength Labs</span>
+    <div class="footer-line"></div>
+  </div>
+</div>
+
+<!-- ══════════════════════════
+     PAGE 3 — TREINAR PESADO
+══════════════════════════ -->
+<div class="page" id="p3">
+  <div class="top-bar"></div>
+  <div class="noise"></div>
+  <div class="glow-orb" style="width:360px;height:360px;background:var(--orange-1);bottom:-60px;right:-80px;opacity:0.12;"></div>
+
+  <div class="inner-header">
+    <span class="inner-brand">Strength Labs · High End Training</span>
+    <span class="inner-pg">03</span>
+  </div>
+
+  <div class="inner-body">
+    <div class="section-label">Conceito Central</div>
+    <div class="section-title">Treino de<br><span>Alta</span><br>Intensidade</div>
+
+    <div class="grid2" style="margin-bottom:24px;">
+      <div class="card">
+        <div class="card-title">O que significa treinar pesado</div>
+        <div class="list-item"><div class="list-bullet"></div><span>Levar séries próximas ou até a falha muscular</span></div>
+        <div class="list-item"><div class="list-bullet"></div><span>Gerar máximo estímulo mecânico</span></div>
+        <div class="list-item"><div class="list-bullet"></div><span>Priorizar qualidade sobre quantidade</span></div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:16px;">
+        <div class="card" style="flex:1;text-align:center;">
+          <div class="big-stat">4–10</div>
+          <div class="stat-label">séries semanais<br>por grupo muscular</div>
+        </div>
+        <div style="background:var(--bg-card2);border-radius:8px;padding:16px 20px;">
+          <div class="pill purple">Referência</div>
+          <div style="font-size:13px;color:var(--gray-1);line-height:1.6;margin-top:6px;">
+            Baseado em abordagens modernas de alta intensidade — progressão inteligente e falha estratégica.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="highlight-box">
+      <div class="highlight-quote">Intensidade constrói músculo.<br>Volume apenas complementa.</div>
+    </div>
+  </div>
+
+  <div class="inner-footer">
+    <span class="footer-brand">Team Krol · Strength Labs</span>
+    <div class="footer-line"></div>
+  </div>
+</div>
+
+<!-- ══════════════════════════
+     PAGE 4 — VOLUME
+══════════════════════════ -->
+<div class="page" id="p4">
+  <div class="top-bar"></div>
+  <div class="noise"></div>
+  <div class="glow-orb" style="width:420px;height:420px;background:var(--purple-1);top:-120px;right:-100px;"></div>
+
+  <div class="inner-header">
+    <span class="inner-brand">Strength Labs · High End Training</span>
+    <span class="inner-pg">04</span>
+  </div>
+
+  <div class="inner-body">
+    <div class="section-label">Variável Crítica</div>
+    <div class="section-title"><span>Volume</span><br>de Treino</div>
+
+    <div class="body-text" style="margin-bottom:28px;">
+      O volume de treino é individual e deve ser ajustado de acordo com nível de experiência, capacidade de recuperação, intensidade aplicada e resposta individual ao treino.
+    </div>
+
+    <div class="grid3" style="margin-bottom:24px;">
+      <div class="level-card green">
+        <div class="level-name"><span class="level-dot green"></span>Iniciantes</div>
+        <div class="big-stat" style="font-size:38px;">4–6</div>
+        <div class="stat-label">séries/semana</div>
+        <div style="font-size:12px;color:var(--gray-1);margin-top:12px;line-height:1.6;">Foco em técnica e adaptação neuromotora</div>
+      </div>
+      <div class="level-card yellow">
+        <div class="level-name"><span class="level-dot yellow"></span>Intermediários</div>
+        <div class="big-stat" style="font-size:38px;">6–8</div>
+        <div class="stat-label">séries/semana</div>
+        <div style="font-size:12px;color:var(--gray-1);margin-top:12px;line-height:1.6;">Equilíbrio entre intensidade e recuperação</div>
+      </div>
+      <div class="level-card red">
+        <div class="level-name"><span class="level-dot red"></span>Avançados</div>
+        <div class="big-stat" style="font-size:38px;">8–10</div>
+        <div class="stat-label">séries/semana</div>
+        <div style="font-size:12px;color:var(--gray-1);margin-top:12px;line-height:1.6;">Ajuste fino baseado em desempenho real</div>
+      </div>
+    </div>
+
+    <div class="grid2">
+      <div class="card" style="border-left-color:#f87171;">
+        <div class="card-title" style="color:#f87171;">⚠ Sinais de Volume Excessivo</div>
+        <div class="list-item"><div class="list-bullet" style="background:#f87171;"></div><span>Queda de performance</span></div>
+        <div class="list-item"><div class="list-bullet" style="background:#f87171;"></div><span>Falta de progressão</span></div>
+        <div class="list-item"><div class="list-bullet" style="background:#f87171;"></div><span>Fadiga acumulada / dores persistentes</span></div>
+      </div>
+      <div class="card" style="border-left-color:#4ade80;">
+        <div class="card-title" style="color:#4ade80;">✓ Sinais de Volume Adequado</div>
+        <div class="list-item"><div class="list-bullet" style="background:#4ade80;"></div><span>Progressão de carga ou repetições</span></div>
+        <div class="list-item"><div class="list-bullet" style="background:#4ade80;"></div><span>Boa recuperação entre treinos</span></div>
+        <div class="list-item"><div class="list-bullet" style="background:#4ade80;"></div><span>Execução consistente</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="inner-footer">
+    <span class="footer-brand">Team Krol · Strength Labs</span>
+    <div class="footer-line"></div>
+  </div>
+</div>
+
+<!-- ══════════════════════════
+     PAGE 5 — APLICAR INTENSIDADE
+══════════════════════════ -->
+<div class="page" id="p5">
+  <div class="top-bar"></div>
+  <div class="noise"></div>
+  <div class="glow-orb" style="width:350px;height:350px;background:var(--orange-1);bottom:-40px;left:-60px;opacity:0.1;"></div>
+
+  <div class="inner-header">
+    <span class="inner-brand">Strength Labs · High End Training</span>
+    <span class="inner-pg">05</span>
+  </div>
+
+  <div class="inner-body">
+    <div class="section-label">Aplicação Prática</div>
+    <div class="section-title">Como Aplicar<br><span>Intensidade</span></div>
+
+    <div class="grid2" style="margin-bottom:24px;">
+      <div>
+        <div class="card" style="margin-bottom:16px;">
+          <div class="card-title">Princípios Fundamentais</div>
+          <div class="list-item"><div class="list-bullet"></div><span>Treinar cada músculo <strong>2–3x por semana</strong></span></div>
+          <div class="list-item"><div class="list-bullet"></div><span>Progressão obrigatória: mais carga OU mais repetições</span></div>
+          <div class="list-item"><div class="list-bullet"></div><span>Execução controlada com técnica perfeita</span></div>
+        </div>
+        <div class="card">
+          <div class="card-title">⏱ Descanso Entre Séries</div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:4px;">
+            <div style="text-align:center;">
+              <div class="big-stat" style="font-size:40px;">2–4'</div>
+              <div class="stat-label">Compostos</div>
+            </div>
+            <div style="text-align:center;">
+              <div class="big-stat" style="font-size:40px;">1–2'</div>
+              <div class="stat-label">Acessórios</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:16px;">
+        <div class="highlight-box" style="flex:1;display:flex;flex-direction:column;justify-content:center;">
+          <div style="font-family:'Barlow Condensed',sans-serif;font-size:11px;font-weight:700;letter-spacing:4px;color:var(--gray-1);margin-bottom:8px;text-transform:uppercase;">Regra de Ouro</div>
+          <div class="highlight-quote" style="font-size:22px;">Aumente a carga quando atingir o topo da faixa com técnica perfeita.</div>
+        </div>
+        <div class="card">
+          <div class="card-title">Objetivo do Método</div>
+          <div class="list-item"><div class="list-bullet"></div><span>Hipertrofia com máxima eficiência</span></div>
+          <div class="list-item"><div class="list-bullet"></div><span>Recuperação otimizada entre sessões</span></div>
+          <div class="list-item"><div class="list-bullet"></div><span>Progressão contínua e mensurável</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="inner-footer">
+    <span class="footer-brand">Team Krol · Strength Labs</span>
+    <div class="footer-line"></div>
+  </div>
+</div>
+
+<!-- ══════════════════════════
+     PAGE 6 — ADAPTAÇÃO POR NÍVEL
+══════════════════════════ -->
+<div class="page" id="p6">
+  <div class="top-bar"></div>
+  <div class="noise"></div>
+  <div class="glow-orb" style="width:400px;height:400px;background:var(--purple-1);top:-80px;right:-80px;"></div>
+
+  <div class="inner-header">
+    <span class="inner-brand">Strength Labs · High End Training</span>
+    <span class="inner-pg">06</span>
+  </div>
+
+  <div class="inner-body">
+    <div class="section-label">Personalização</div>
+    <div class="section-title">Adaptação<br><span>por Nível</span></div>
+
+    <div style="display:flex;flex-direction:column;gap:16px;margin-bottom:24px;">
+
+      <div class="level-card green" style="display:grid;grid-template-columns:160px 1fr;gap:24px;align-items:start;">
+        <div>
+          <div class="level-name"><span class="level-dot green"></span>Iniciante</div>
+          <div class="pill" style="background:rgba(74,222,128,0.15);color:#4ade80;">RIR 2–3</div>
+        </div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;">
+          <div class="list-item" style="margin:0;"><div class="list-bullet" style="background:#4ade80;"></div><span>Reduzir 1 série por exercício</span></div>
+          <div class="list-item" style="margin:0;"><div class="list-bullet" style="background:#4ade80;"></div><span>Evitar falha total</span></div>
+          <div class="list-item" style="margin:0;"><div class="list-bullet" style="background:#4ade80;"></div><span>Prioridade: aprender execução</span></div>
+          <div class="list-item" style="margin:0;"><div class="list-bullet" style="background:#4ade80;"></div><span>Trabalhar com 2–3 reps em reserva</span></div>
+        </div>
+      </div>
+
+      <div class="level-card yellow" style="display:grid;grid-template-columns:160px 1fr;gap:24px;align-items:start;">
+        <div>
+          <div class="level-name"><span class="level-dot yellow"></span>Intermediário</div>
+          <div class="pill" style="background:rgba(255,159,28,0.15);color:var(--orange-2);">RIR 1–2</div>
+        </div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;">
+          <div class="list-item" style="margin:0;"><div class="list-bullet"></div><span>Seguir protocolo padrão</span></div>
+          <div class="list-item" style="margin:0;"><div class="list-bullet"></div><span>Introduzir técnicas intensificadoras</span></div>
+          <div class="list-item" style="margin:0;"><div class="list-bullet"></div><span>Dead-stop em pontos fracos</span></div>
+          <div class="list-item" style="margin:0;"><div class="list-bullet"></div><span>Faixa de 8–12 reps na maioria</span></div>
+        </div>
+      </div>
+
+      <div class="level-card red" style="display:grid;grid-template-columns:160px 1fr;gap:24px;align-items:start;">
+        <div>
+          <div class="level-name"><span class="level-dot red"></span>Avançado</div>
+          <div class="pill" style="background:rgba(248,113,113,0.15);color:#f87171;">RIR 0–1</div>
+        </div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;">
+          <div class="list-item" style="margin:0;"><div class="list-bullet" style="background:#f87171;"></div><span>RIR 1 na maioria das séries</span></div>
+          <div class="list-item" style="margin:0;"><div class="list-bullet" style="background:#f87171;"></div><span>Falha estratégica (não em todas)</span></div>
+          <div class="list-item" style="margin:0;"><div class="list-bullet" style="background:#f87171;"></div><span>Cluster sets</span></div>
+          <div class="list-item" style="margin:0;"><div class="list-bullet" style="background:#f87171;"></div><span>Rest-pause / Dead-stop</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="inner-footer">
+    <span class="footer-brand">Team Krol · Strength Labs</span>
+    <div class="footer-line"></div>
+  </div>
+</div>
+
+<!-- ══════════════════════════
+     PAGE 7 — RECUPERAÇÃO
+══════════════════════════ -->
+<div class="page" id="p7">
+  <div class="top-bar"></div>
+  <div class="noise"></div>
+  <div class="glow-orb" style="width:380px;height:380px;background:var(--orange-1);bottom:-60px;right:-60px;opacity:0.1;"></div>
+
+  <div class="inner-header">
+    <span class="inner-brand">Strength Labs · High End Training</span>
+    <span class="inner-pg">07</span>
+  </div>
+
+  <div class="inner-body">
+    <div class="section-label">Fundamento Invisível</div>
+    <div class="section-title">Recuperação<br><span>&amp; Deload</span></div>
+
+    <div class="grid2" style="margin-bottom:24px;">
+      <div style="display:flex;flex-direction:column;gap:16px;">
+        <div class="card">
+          <div class="card-title">💤 Sono</div>
+          <div class="big-stat">7–9h</div>
+          <div class="stat-label">por noite</div>
+          <div style="font-size:13px;color:var(--gray-1);margin-top:12px;line-height:1.6;">Sono é onde o músculo cresce. Não negocie isso.</div>
+        </div>
+        <div class="card">
+          <div class="card-title">🍗 Proteína</div>
+          <div class="big-stat">1.6–2.2<span style="font-size:28px;">g/kg</span></div>
+          <div style="font-size:13px;color:var(--gray-1);margin-top:12px;line-height:1.6;">Carboidratos: 3–6g/kg para suporte energético</div>
+        </div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:16px;">
+        <div class="highlight-box" style="flex:1;display:flex;flex-direction:column;justify-content:center;">
+          <div class="highlight-quote" style="font-size:22px;margin-bottom:16px;">Sem recuperação = sem crescimento.</div>
+          <div style="font-size:13px;color:var(--gray-1);line-height:1.7;">O treino é o estímulo. A recuperação é onde o resultado acontece. Ignorar o descanso é anular o trabalho feito na academia.</div>
+        </div>
+        <div class="card">
+          <div class="card-title">🔻 Deload</div>
+          <div class="list-item"><div class="list-bullet"></div><span>A cada <strong>6–12 semanas</strong></span></div>
+          <div class="list-item"><div class="list-bullet"></div><span>Reduzir volume em <strong>50%</strong> por 1 semana</span></div>
+          <div class="list-item"><div class="list-bullet"></div><span>Objetivo: reduzir fadiga acumulada e restaurar performance</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="inner-footer">
+    <span class="footer-brand">Team Krol · Strength Labs</span>
+    <div class="footer-line"></div>
+  </div>
+</div>
+
+<!-- ══════════════════════════
+     PAGE 8 — PROGRESSÃO
+══════════════════════════ -->
+<div class="page" id="p8">
+  <div class="top-bar"></div>
+  <div class="noise"></div>
+  <div class="glow-orb" style="width:420px;height:420px;background:var(--purple-1);top:-100px;left:-100px;"></div>
+
+  <div class="inner-header">
+    <span class="inner-brand">Strength Labs · High End Training</span>
+    <span class="inner-pg">08</span>
+  </div>
+
+  <div class="inner-body">
+    <div class="section-label">Motor do Resultado</div>
+    <div class="section-title"><span>Progressão</span><br>Contínua</div>
+
+    <div class="body-text" style="margin-bottom:28px;">
+      Variar estímulos a cada 4–6 semanas, monitorar fadiga e ajustar volume conforme necessário são os pilares de uma evolução sustentável.
+    </div>
+
+    <div class="grid2" style="margin-bottom:24px;">
+      <div class="card">
+        <div class="card-title">Estratégias de Progressão</div>
+        <div class="list-item"><div class="list-bullet"></div><span>Mais carga com técnica perfeita</span></div>
+        <div class="list-item"><div class="list-bullet"></div><span>Mais repetições dentro da faixa</span></div>
+        <div class="list-item"><div class="list-bullet"></div><span>Menos descanso (cuidado)</span></div>
+        <div class="list-item"><div class="list-bullet"></div><span>Maior amplitude / controle excêntrico</span></div>
+      </div>
+      <div class="card">
+        <div class="card-title">Técnicas Avançadas</div>
+        <div class="list-item"><div class="list-bullet"></div><span><strong>Cluster sets</strong> — mini-pausas dentro da série</span></div>
+        <div class="list-item"><div class="list-bullet"></div><span><strong>Rest-pause</strong> — extensão além da falha</span></div>
+        <div class="list-item"><div class="list-bullet"></div><span><strong>Dead-stop</strong> — elimina elástico, maximiza tensão</span></div>
+        <div class="list-item"><div class="list-bullet"></div><span><strong>Intensificação progressiva</strong> por bloco</span></div>
+      </div>
+    </div>
+
+    <div class="highlight-box">
+      <div class="highlight-quote" style="font-size:22px;">Se você não evolui semana a semana, você não está treinando — está apenas se cansando.</div>
+    </div>
+  </div>
+
+  <div class="inner-footer">
+    <span class="footer-brand">Team Krol · Strength Labs</span>
+    <div class="footer-line"></div>
+  </div>
+</div>
+
+<!-- ══════════════════════════
+     PAGE 9 — DIVISÕES
+══════════════════════════ -->
+<div class="page" id="p9">
+  <div class="top-bar"></div>
+  <div class="noise"></div>
+  <div class="glow-orb" style="width:360px;height:360px;background:var(--orange-1);bottom:-60px;right:-60px;opacity:0.1;"></div>
+
+  <div class="inner-header">
+    <span class="inner-brand">Strength Labs · High End Training</span>
+    <span class="inner-pg">09</span>
+  </div>
+
+  <div class="inner-body">
+    <div class="section-label">Estrutura do Treino</div>
+    <div class="section-title">Divisões<br><span>de Treino</span></div>
+
+    <div style="display:flex;flex-direction:column;gap:12px;margin-bottom:24px;">
+
+      <div class="card" style="display:grid;grid-template-columns:200px 1fr;gap:20px;align-items:center;">
+        <div>
+          <div class="pill purple">Upper / Lower</div>
+          <div class="big-stat" style="font-size:36px;">4x</div>
+          <div class="stat-label">por semana</div>
+        </div>
+        <div>
+          <div style="font-size:13px;color:var(--gray-1);line-height:1.7;">Divide entre parte superior e inferior. Alta frequência e alta compatibilidade com maioria dos objetivos. <strong style="color:var(--white);">Ideal para intermediários.</strong></div>
+        </div>
+      </div>
+
+      <div class="card" style="display:grid;grid-template-columns:200px 1fr;gap:20px;align-items:center;">
+        <div>
+          <div class="pill orange">Push / Pull / Legs</div>
+          <div class="big-stat" style="font-size:36px;">6x</div>
+          <div class="stat-label">por semana</div>
+        </div>
+        <div>
+          <div style="font-size:13px;color:var(--gray-1);line-height:1.7;">Push: peito, ombro, tríceps · Pull: costas, bíceps · Legs: pernas. <strong style="color:var(--white);">Versátil e eficiente.</strong></div>
+        </div>
+      </div>
+
+      <div class="card" style="display:grid;grid-template-columns:200px 1fr;gap:20px;align-items:center;">
+        <div>
+          <div class="pill" style="background:rgba(74,222,128,0.15);color:#4ade80;">Full Body</div>
+          <div class="big-stat" style="font-size:36px;">3x</div>
+          <div class="stat-label">por semana</div>
+        </div>
+        <div>
+          <div style="font-size:13px;color:var(--gray-1);line-height:1.7;">Corpo todo em cada sessão. Alta frequência por músculo. <strong style="color:var(--white);">Ideal para iniciantes.</strong></div>
+        </div>
+      </div>
+
+      <div class="card" style="display:grid;grid-template-columns:200px 1fr;gap:20px;align-items:center;">
+        <div>
+          <div class="pill" style="background:rgba(248,113,113,0.15);color:#f87171;">Torso / Limbs</div>
+          <div class="big-stat" style="font-size:36px;">4–5x</div>
+          <div class="stat-label">por semana</div>
+        </div>
+        <div>
+          <div style="font-size:13px;color:var(--gray-1);line-height:1.7;">Torso (tronco) vs Membros. Mais detalhado e técnico. <strong style="color:var(--white);">Avançados e especializados.</strong></div>
+        </div>
+      </div>
+
+    </div>
+
+    <div style="background:var(--bg-card2);border-radius:8px;padding:16px 24px;border:1px solid #222235;">
+      <div style="font-family:'Barlow Condensed',sans-serif;font-size:11px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:var(--orange-2);margin-bottom:8px;">Regra Universal</div>
+      <div style="font-size:14px;color:var(--white);">Frequência sempre ≥ 2x por músculo — independente da divisão escolhida.</div>
+    </div>
+  </div>
+
+  <div class="inner-footer">
+    <span class="footer-brand">Team Krol · Strength Labs</span>
+    <div class="footer-line"></div>
+  </div>
+</div>
+
+<!-- ══════════════════════════
+     PAGE 10 — COMO ESCOLHER
+══════════════════════════ -->
+<div class="page" id="p10">
+  <div class="top-bar"></div>
+  <div class="noise"></div>
+  <div class="glow-orb" style="width:400px;height:400px;background:var(--purple-1);top:-80px;right:-80px;"></div>
+
+  <div class="inner-header">
+    <span class="inner-brand">Strength Labs · High End Training</span>
+    <span class="inner-pg">10</span>
+  </div>
+
+  <div class="inner-body">
+    <div class="section-label">Guia de Decisão</div>
+    <div class="section-title">Como<br><span>Escolher</span><br>sua Divisão</div>
+
+    <div style="display:flex;flex-direction:column;gap:20px;margin-bottom:28px;">
+      <div style="display:flex;align-items:center;gap:24px;">
+        <div style="flex-shrink:0;width:120px;text-align:center;">
+          <div class="pill" style="background:rgba(74,222,128,0.15);color:#4ade80;display:block;text-align:center;margin-bottom:6px;">Iniciante</div>
+          <div style="font-size:11px;color:var(--gray-1);">0–2 anos</div>
+        </div>
+        <div style="flex:1;height:2px;background:linear-gradient(90deg,#4ade80,transparent);"></div>
+        <div class="card" style="flex:2;padding:16px 20px;">
+          <div style="font-size:15px;font-weight:600;color:var(--white);">Full Body 3x / semana</div>
+          <div style="font-size:13px;color:var(--gray-1);margin-top:4px;">Alta frequência, técnica e adaptação neuromotora</div>
+        </div>
+      </div>
+      <div style="display:flex;align-items:center;gap:24px;">
+        <div style="flex-shrink:0;width:120px;text-align:center;">
+          <div class="pill orange" style="display:block;text-align:center;margin-bottom:6px;">Intermediário</div>
+          <div style="font-size:11px;color:var(--gray-1);">2–5 anos</div>
+        </div>
+        <div style="flex:1;height:2px;background:linear-gradient(90deg,var(--orange-2),transparent);"></div>
+        <div class="card" style="flex:2;padding:16px 20px;">
+          <div style="font-size:15px;font-weight:600;color:var(--white);">Upper / Lower 4x / semana</div>
+          <div style="font-size:13px;color:var(--gray-1);margin-top:4px;">Equilíbrio perfeito entre frequência e volume</div>
+        </div>
+      </div>
+      <div style="display:flex;align-items:center;gap:24px;">
+        <div style="flex-shrink:0;width:120px;text-align:center;">
+          <div class="pill" style="background:rgba(248,113,113,0.15);color:#f87171;display:block;text-align:center;margin-bottom:6px;">Avançado</div>
+          <div style="font-size:11px;color:var(--gray-1);">5+ anos</div>
+        </div>
+        <div style="flex:1;height:2px;background:linear-gradient(90deg,#f87171,transparent);"></div>
+        <div class="card" style="flex:2;padding:16px 20px;">
+          <div style="font-size:15px;font-weight:600;color:var(--white);">PPL · Torso/Limbs · Híbridos</div>
+          <div style="font-size:13px;color:var(--gray-1);margin-top:4px;">Alto volume, alta frequência, especialização</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">Observações Técnicas</div>
+      <div class="grid2">
+        <div>
+          <div class="list-item"><div class="list-bullet"></div><span>Progressão é prioridade absoluta</span></div>
+          <div class="list-item"><div class="list-bullet"></div><span>Falha é ferramenta, não regra</span></div>
+        </div>
+        <div>
+          <div class="list-item"><div class="list-bullet"></div><span>Volume ajustado individualmente</span></div>
+          <div class="list-item"><div class="list-bullet"></div><span>Foco em execução perfeita sempre</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="inner-footer">
+    <span class="footer-brand">Team Krol · Strength Labs</span>
+    <div class="footer-line"></div>
+  </div>
+</div>
+
+<!-- ══════════════════════════
+     PAGE 11 — FILOSOFIA
+══════════════════════════ -->
+<div class="page" id="p11">
+  <div class="top-bar"></div>
+  <div class="noise"></div>
+  <div class="glow-orb" style="width:500px;height:500px;background:var(--purple-1);top:50%;left:50%;transform:translate(-50%,-50%);opacity:0.2;"></div>
+
+  <!-- Watermark words -->
+  <div class="phil-word" style="bottom:120px;left:-20px;">INTENSIDADE</div>
+  <div class="phil-word" style="bottom:200px;right:-40px;font-size:90px;">CONSISTÊNCIA</div>
+
+  <div class="inner-header">
+    <span class="inner-brand">Strength Labs · High End Training</span>
+    <span class="inner-pg">11</span>
+  </div>
+
+  <div style="position:relative;z-index:5;padding:80px 64px;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:900px;text-align:center;">
+
+    <div class="section-label" style="text-align:center;margin-bottom:20px;">A Filosofia</div>
+
+    <div style="font-family:'Bebas Neue',sans-serif;font-size:90px;line-height:0.85;text-transform:uppercase;letter-spacing:2px;margin-bottom:32px;">
+      <div style="color:var(--white);">Sem treino</div>
+      <div style="background:linear-gradient(90deg,var(--purple-2),var(--orange-1));-webkit-background-clip:text;-webkit-text-fill-color:transparent;">fofo.</div>
+      <div style="color:var(--white);margin-top:12px;">Sem volume</div>
+      <div style="background:linear-gradient(90deg,var(--orange-1),var(--purple-2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;">inútil.</div>
+    </div>
+
+    <div style="width:80px;height:2px;background:linear-gradient(90deg,var(--purple-2),var(--orange-1));margin:32px auto;"></div>
+
+    <div style="display:flex;gap:48px;justify-content:center;margin-bottom:40px;">
+      <div style="text-align:center;">
+        <div style="font-family:'Bebas Neue',sans-serif;font-size:48px;background:linear-gradient(135deg,var(--purple-2),var(--orange-1));-webkit-background-clip:text;-webkit-text-fill-color:transparent;">01</div>
+        <div style="font-family:'Barlow Condensed',sans-serif;font-size:16px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--white);">Intensidade</div>
+      </div>
+      <div style="text-align:center;">
+        <div style="font-family:'Bebas Neue',sans-serif;font-size:48px;background:linear-gradient(135deg,var(--purple-2),var(--orange-1));-webkit-background-clip:text;-webkit-text-fill-color:transparent;">02</div>
+        <div style="font-family:'Barlow Condensed',sans-serif;font-size:16px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--white);">Consistência</div>
+      </div>
+      <div style="text-align:center;">
+        <div style="font-family:'Bebas Neue',sans-serif;font-size:48px;background:linear-gradient(135deg,var(--purple-2),var(--orange-1));-webkit-background-clip:text;-webkit-text-fill-color:transparent;">03</div>
+        <div style="font-family:'Barlow Condensed',sans-serif;font-size:16px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--white);">Progressão</div>
+      </div>
+    </div>
+
+    <div style="font-size:15px;font-weight:300;color:var(--gray-1);line-height:1.8;max-width:460px;">
+      Esses três pilares são tudo que existe. Qualquer programa que os respeite vai funcionar. Qualquer programa que os ignore vai falhar.
+    </div>
+  </div>
+
+  <div class="inner-footer">
+    <span class="footer-brand">Team Krol · Strength Labs</span>
+    <div class="footer-line"></div>
+  </div>
+</div>
+
+<!-- ══════════════════════════
+     PAGE 12 — CTA FINAL
+══════════════════════════ -->
+<div class="page" id="p12">
+  <div class="top-bar"></div>
+  <div class="noise"></div>
+  <div class="glow-orb" style="width:500px;height:500px;background:var(--purple-1);top:-150px;right:-100px;"></div>
+  <div class="glow-orb" style="width:350px;height:350px;background:var(--orange-1);bottom:-80px;left:-80px;opacity:0.12;"></div>
+
+  <div class="inner-header">
+    <span class="inner-brand">Strength Labs · High End Training</span>
+    <span class="inner-pg">12</span>
+  </div>
+
+  <div style="position:relative;z-index:5;padding:52px;display:flex;flex-direction:column;justify-content:space-between;min-height:960px;">
+
+    <div>
+      <div class="section-label" style="margin-bottom:12px;">Próximo Passo</div>
+      <div class="section-title" style="font-size:52px;margin-bottom:24px;">Pronto para<br><span>Evoluir?</span></div>
+      <div class="body-text" style="margin-bottom:32px;">
+        Você tem o método. Agora é hora de aplicar com orientação individualizada — treino, ajuste de volume, progressão e acompanhamento real.
+      </div>
+    </div>
+
+    <div class="cta-box">
+      <div style="font-family:'Barlow Condensed',sans-serif;font-size:11px;font-weight:700;letter-spacing:5px;text-transform:uppercase;color:var(--purple-3);margin-bottom:16px;">Consultoria Completa Disponível</div>
+      <div class="cta-title">Entre em<br>Contato</div>
+      <div class="cta-body">
+        Programa personalizado com base nos seus objetivos, histórico e disponibilidade. Resultados reais com método comprovado.
+      </div>
+      <div class="cta-btn">Fale Conosco Agora</div>
+    </div>
+
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-top:40px;padding-top:24px;border-top:1px solid #1e1e30;">
+      <div>
+        <div style="font-family:'Bebas Neue',sans-serif;font-size:32px;letter-spacing:4px;color:var(--white);">Team Krol</div>
+        <div style="font-family:'Barlow Condensed',sans-serif;font-size:11px;font-weight:700;letter-spacing:5px;text-transform:uppercase;color:var(--purple-3);">Strength Labs</div>
+      </div>
+      <div style="text-align:right;">
+        <div style="font-family:'Barlow Condensed',sans-serif;font-size:11px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--gray-2);">High End Training</div>
+        <div style="font-family:'Barlow Condensed',sans-serif;font-size:10px;letter-spacing:2px;color:var(--gray-2);margin-top:4px;">© 2025 · Todos os direitos reservados</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
